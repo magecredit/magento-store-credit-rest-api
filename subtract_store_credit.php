@@ -1,6 +1,6 @@
 <?php
 
-// This script adds to the customer's store credit balance.
+// This script subtracts store credit from the customer's store credit balance
 
 require_once 'oauth_config.php';
 require_once 'init_oauth.php';
@@ -16,19 +16,19 @@ $customerId = $_GET['customer_id'];
 
 $resourceUrl = "{$apiUrl}/customer/{$customerId}/store_credit";
 
-// TODO update these with the numbers you want.
+// TODO update these numbers with the values you want.
 $storeCreditData = json_encode(array(
-    'website_id'            => 1,       // default website
-    'amount'                => 5.67,    // $1.23
-    'action'                => 'add',   // add store credit
+    'website_id'            => 1,           // default website
+    'amount'                => 1.23,        // $1.23
+    'subtract'              => 'subtract',  // subtract from the balance
 ));
 $headers = array('Content-Type' => 'application/json');
 
 try {
     $oauthClient->fetch($resourceUrl, $storeCreditData, OAUTH_HTTP_METHOD_PUT, $headers);
 
-    header('Content-type: application/json');
-    echo json_encode($oauthClient->getLastResponseInfo());
+    // header('Content-type: application/json');
+    echo $oauthClient->getLastResponse();
 
 } catch (Exception $e) {
     die($e);

@@ -1,26 +1,21 @@
 <?php
 
-// This script adds to the customer's store credit balance.
+// This script updates the store credit balance of a customer
 
 require_once 'oauth_config.php';
 require_once 'init_oauth.php';
 
-// Init ouath client
 $oauthClient = init_oauth($storeBaseUrl, $callbackUrl, $consumerKey, $consumerSecret);
 
-// Get customer ID from GET request for this script so we can pass it to the REST api
-if (empty($_GET['customer_id'])) {
-    die("Please specify ?customer_id=*ID* in the URL to use this script.");
-}
-$customerId = $_GET['customer_id'];
+$customerId = 127; // TODO enter the customer ID of the customer you would like to fetch store credit balance of.
 
 $resourceUrl = "{$apiUrl}/customer/{$customerId}/store_credit";
 
-// TODO update these with the numbers you want.
+// TODO update these values with whatever you'd like
 $storeCreditData = json_encode(array(
-    'website_id'            => 1,       // default website
-    'amount'                => 5.67,    // $1.23
-    'action'                => 'add',   // add store credit
+    'website_id'            => 1,           // default website
+    'amount'                => 7.89,        // $7.89
+    'subtract'              => 'update',    // if this field is left out it will also update the store credit
 ));
 $headers = array('Content-Type' => 'application/json');
 

@@ -9,10 +9,14 @@
  * 4. Configure resource permissions for Admin REST user for retrieving all product data for Admin
  * 5. Create a Consumer.
  */
-// $callbackUrl is a path to your file with OAuth authentication example for the Admin user
 
 /**
+ * 
  * Initializes the oauth client and authenticates if necessary.
+ * @param  string $storeBaseUrl   base url of store
+ * @param  string $callbackUrl    callback URL after successful oauth login/confirm
+ * @param  string $consumerKey    consumer key generated in the magento admin
+ * @param  string $consumerSecret consumer secret generted in the magento admin
  * @return OAuth_Client or null if unsuccessful (or needs auth)
  */
 function init_oauth($storeBaseUrl, $callbackUrl, $consumerKey, $consumerSecret)
