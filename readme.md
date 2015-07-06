@@ -1,12 +1,12 @@
-# Magento Store Credit REST API
+a# Magento Store Credit REST API
 This repository contains an example set of scripts that can be used with the Magecredit store credit extension for Magento to retrieve and update store credit balances of customers in the Magento eCommerce platform. 
 
-## Requirements
+### Requirements
 1. You must have a version of Magento that supports the REST API. Magento 1.7+ is recommended.
 2. You must have Magecredit installed.
    If you do not already have Magecredit, please visit [Magecredit.com](http://www.magecredit.com) to get it and read more about it.
 
-## Setup
+### REST API Magento Setup
 Magecredit comes with the ability to restrict/enable read/write permissions to
 different Magento REST users. Make sure the user you are logging in with and approving for the REST oauth process has permission to access and read/write to the Magento store credit fields.
 
@@ -16,11 +16,11 @@ different Magento REST users. Make sure the user you are logging in with and app
 ![Magento Store Credit REST API ACL information](http://monosnap.com/image/EtZJnkgroo8EPrd4oOPnQo7KofVM7k.png)
 3. Authenticate and use the REST API just like you would with any other Magento REST API endpoint for your store.
 
-## Using the Example
+### Using the Example PHP Code
 Please see the readme.md in the Example folder for usage instructions of the example.
 
 
-## API Specification
+## Store Credit API Specification
 
 Notes:
 * If base_currency_code is empty, assume base store currency
@@ -30,6 +30,7 @@ Notes:
 ### Get all store credit balances
 * URL: /customer/store_credit
 * Method: GET
+
 #### Example Request
 * Request URL: /customer/store_credit
 * Response: 
@@ -61,8 +62,9 @@ Notes:
   ```
 
 ### Get a customer's store credit balance
-* URL: /customer/*:customer_id*/store_credit
+* URL: /customer/**:customer_id**/store_credit
 * Method: GET
+
 #### Example Request
 * Request URL: /customer/127/store_credit
 * Response:
@@ -78,12 +80,13 @@ Notes:
     ```
 
 ### Get a customer's store credit balance change history
-* URL: /customer/*:customer_id*/store_credit/history
+* URL: /customer/**:customer_id**/store_credit/history
 * Method: GET
 * 'action' is the action code for what was performed (1=UPDATED, 2=CREATED, 3=USED, 4=REFUNDED, 5=REVERTED, 6=IMPORTED)
 * 'is_customer_notified' tells you if the customer was notified via email automatically when the balance changed.
 * 'balance_amount' is the balance *after* the change
 * 'balance_delta' is the change. Negative is a reduction in store credit, positive is an increase in store credit.
+
 #### Example Request
 * Request URL: /customer/135/store_credit/history
 * Response: 
@@ -134,10 +137,11 @@ Notes:
     ```
 
 ### Update a customer's store credit balance
-* URL: /customer/*:customer_id*/store_credit
+* URL: /customer/**:customer_id**/store_credit
 * Method: PUT
 * 'amount' is the amount you want to add/subtract/update to.
 * 'action' is the action you would like to perform with the amount. You can 'add', 'subtract' or 'update' (default it update)
+
 #### Example Request 1 - Update store credit balance
   * This sets the customer's store credit balance to 7.89
   * Request URL: /customer/127/store_credit
