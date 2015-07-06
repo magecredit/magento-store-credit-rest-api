@@ -20,6 +20,8 @@ different Magento REST users. Make sure the user you are logging in with and app
 Please see the readme.md in the Example folder for usage instructions of the example.
 
 
+-----
+
 ## Store Credit API Specification
 
 Notes:
