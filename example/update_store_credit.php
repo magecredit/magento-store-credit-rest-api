@@ -15,7 +15,7 @@ $resourceUrl = "{$apiUrl}/customer/{$customerId}/store_credit";
 $storeCreditData = json_encode(array(
     'website_id'            => 1,           // default website
     'amount'                => 7.89,        // $7.89
-    'subtract'              => 'update',    // if this field is left out it will also update the store credit
+    'action'              => 'update',    // if this field is left out it will also update the store credit
 ));
 $headers = array('Content-Type' => 'application/json');
 
