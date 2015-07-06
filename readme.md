@@ -1,4 +1,4 @@
-a# Magento Store Credit REST API
+# Magento Store Credit REST API
 This repository contains an example set of scripts that can be used with the Magecredit store credit extension for Magento to retrieve and update store credit balances of customers in the Magento eCommerce platform. 
 
 ### Requirements
