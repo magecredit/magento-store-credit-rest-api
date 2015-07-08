@@ -28,6 +28,7 @@ Notes:
 * If base_currency_code is empty, assume base store currency
 * Website ID #1 is the default Magento website.
 * customer_id refers to the customer entity ID.
+* If you have a custom store credit balances per website (configurable in Magecredit) then you can pass in ?website_id=*WEBSITE_ID* to the GET request. If not, then you can ignore this field.
 
 ### Get all store credit balances
 * URL: /customer/store_credit

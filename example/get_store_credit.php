@@ -17,6 +17,9 @@ $customerId = $_GET['customer_id'];
 $resourceUrl = "{$apiUrl}/customer/{$customerId}/store_credit";
 $oauthClient->fetch($resourceUrl, array(), 'GET', array('Content-Type' => 'application/json'));
 
+// If you have multiple balances per website, you can pass the website ID like this:
+//$oauthClient->fetch($resourceUrl, array('website_id' => 2), 'GET', array('Content-Type' => 'application/json'));
+
 // Output the results
 header('Content-type: application/json');
 echo $oauthClient->getLastResponse();
